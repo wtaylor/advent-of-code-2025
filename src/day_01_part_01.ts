@@ -1,16 +1,11 @@
 import { Array } from "npm:effect";
-import os from "node:os";
+import { takeInput } from "../lib/input_handling.ts";
 
 const DIAL_SIZE = 100;
 const START_POSITION = 50;
 
 if (import.meta.main) {
-  const input = prompt("Input code combinations:")?.split(os.EOL);
-  if (!input) {
-    console.error("Error: Empty input");
-    Deno.exit(1);
-  }
-
+  const input = takeInput();
   console.log(run(input));
 }
 
